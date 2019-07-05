@@ -1,6 +1,7 @@
 import React from 'react';
 import {StyleSheet, Text, TouchableOpacity, View} from 'react-native';
 import DisplayRecentPic from "./display-recent-pic";
+import { ListItem } from 'react-native-elements'
 
 interface NavStatelessComponent extends React.StatelessComponent {
     navigationOptions?: Object
@@ -8,10 +9,28 @@ interface NavStatelessComponent extends React.StatelessComponent {
 
 const ExistingPlayersScreen: NavStatelessComponent = ({ navigation }) => {
 
+    const playerList = [
+        {
+            name: "Kevin"
+            wins: 5,
+            losses: 4
+            bestScore: 10100
+        }
+    ]
+
     return (
         <View style={styles.container}>
 
-            {/*List of people*/}
+            {
+                playerList.map((l, index) => (
+                    <ListItem
+                        key={index}
+                        leftAvatar={{ source: { uri: '../images/rulesicon.png' } }}
+                        title={l.name}
+                        subtitle={'Wins: '+l.wins+' Losses: '+l.losses+' Best Score: '+l.bestScore}
+                      />  
+                ))
+            }
 
             <View>
                 <TouchableOpacity style={styles.buttonContainer}
