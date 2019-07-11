@@ -130,10 +130,10 @@ android {
     }
     signingConfigs {
         debug {
-            storeFile file('debug.keystore')
-            storePassword 'android'
-            keyAlias 'androiddebugkey'
-            keyPassword 'android'
+            storeFile file('farkle-keystore.jks')
+            storePassword 'Farkle2019KG'
+            keyAlias 'farkle'
+            keyPassword 'Farkle2019KG'
         }
     }
     buildTypes {
@@ -173,6 +173,8 @@ dependencies {
     } else {
         implementation 'org.webkit:android-jsc:+'
     }
+
+    implementation project(':react-native-gesture-handler')
 }
 
 // Run this once to be able to run the application with BUCK
